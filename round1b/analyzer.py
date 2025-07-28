@@ -1,0 +1,30 @@
+import json
+from datetime import datetime
+
+# Simulated static output
+output = {
+    "metadata": {
+        "input_documents": ["doc1.pdf", "doc2.pdf"],
+        "persona": "Investment Analyst",
+        "job_to_be_done": "Analyze revenue trends, R&D investments, and market positioning strategies",
+        "processing_timestamp": datetime.utcnow().isoformat() + "Z"
+    },
+    "extracted_sections": [
+        {
+            "document": "doc1.pdf",
+            "page_number": 5,
+            "section_title": "Revenue Growth",
+            "importance_rank": 1
+        }
+    ],
+    "sub_section_analysis": [
+        {
+            "document": "doc1.pdf",
+            "page_number": 5,
+            "refined_text": "Revenue increased by 20% YOY due to cloud services growth."
+        }
+    ]
+}
+
+with open("sample_output.json", "w", encoding="utf-8") as f:
+    json.dump(output, f, indent=2)
